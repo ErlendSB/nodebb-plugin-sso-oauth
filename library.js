@@ -90,11 +90,11 @@
 
 				passportOAuth.Strategy.prototype.userProfile = function(accessToken, done) {
 					process.stdout.write('===AccessToken:' + accessToken +'===');
+					this._oauth2.useAuthorizationHeaderforGET(true);
 					this._oauth2.get(constants.userRoute, accessToken, function(err, body, res) {
 						console.log(constants.userRoute);
 						if (err) {
 							console.log(err);
-							process.stdout.write('===error:' + err +'===');
 							return done(err);
 						}
 
