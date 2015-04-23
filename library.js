@@ -69,7 +69,7 @@
 
 				passportOAuth.Strategy.prototype.userProfile = function(token, secret, params, done) {
 					this._oauth.get(constants.userRoute, token, secret, function(err, body, res) {
-						if (err) { return done(new InternalOAuthError('failed to fetch user profile', err)); }
+						if (err) { return done(err); }
 
 						try {
 							var json = JSON.parse(body);
