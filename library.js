@@ -125,7 +125,7 @@
 				url: '/auth/' + constants.name,
 				callbackURL: '/auth/' + constants.name + '/callback',
 				icon: 'fa-check-square',
-				scope: (constants.scope || '').split(',')
+				scope: (constants.scope || 'Reader').split(',')
 			});
 
 			callback(null, strategies);
@@ -143,8 +143,8 @@
 		console.log(data);
 
 		var profile = {};
-		profile.id = data.id;
-		profile.displayName = data.name;
+		profile.id = data.userId;
+		profile.displayName = data.firstName;
 		profile.emails = [{ value: data.email }];
 
 		// Do you want to automatically make somebody an admin? This line might help you do that...
