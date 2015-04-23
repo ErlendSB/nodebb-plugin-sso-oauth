@@ -40,8 +40,8 @@
 			oauth2: {
 				authorizationURL: 'http://localhost:8888/Authorize.aspx',
 				tokenURL: 'http://localhost:8888/token',
-				clientID: 'ngAuthApp',
-				clientSecret: ''
+				clientID: 'loopifyForum',
+				clientSecret: 'loopifyForumSerect'
 			},
 			userRoute: 'http://localhost:8888/me'	// This is the address to your app's "user profile" API endpoint (expects JSON)
 		}),
