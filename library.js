@@ -89,8 +89,12 @@
 				opts.callbackURL = nconf.get('url') + '/auth/' + constants.name + '/callback';
 
 				passportOAuth.Strategy.prototype.userProfile = function(accessToken, done) {
+					process.stdout.write('===AccessToken:' + accessToken +'===');
 					this._oauth2.get(constants.userRoute, accessToken, function(err, body, res) {
-						if (err) { return done(err); }
+						if (err) {
+							process.stdout.write('===error:' + err +'===');
+							return done(err);
+						}
 
 						try {
 							var json = JSON.parse(body);
