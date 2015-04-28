@@ -89,10 +89,10 @@
 				opts.callbackURL = nconf.get('url') + '/auth/' + constants.name + '/callback';
 
 				passportOAuth.Strategy.prototype.userProfile = function(accessToken, done) {
-					process.stdout.write('===AccessToken:' + accessToken +'===');
+					//process.stdout.write('===AccessToken:' + accessToken +'===');
 					this._oauth2.useAuthorizationHeaderforGET(true);
 					this._oauth2.get(constants.userRoute, accessToken, function(err, body, res) {
-						console.log(constants.userRoute);
+						//console.log(constants.userRoute);
 						if (err) {
 							console.log(err);
 							return done(err);
@@ -146,7 +146,7 @@
 		// Everything else is optional.
 
 		// Find out what is available by uncommenting this line:
-		console.log(data);
+		//console.log(data);
 
 		var profile = {};
 		profile.id = data.userId;
